@@ -1,0 +1,86 @@
+body {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 250vw;
+    height: 250vh;
+    top: -75vh;
+    left: -75vw;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+body::before {
+    background-image: radial-gradient(circle at 40% 60%, #69696930 0%, #1a1a1a00 50%);
+    animation: driftBefore 25s ease-in-out infinite alternate;
+}
+
+body::after {
+    background-image: radial-gradient(circle at 80% 70%, #3a2b4730 0%, #1a1a1a00 50%);
+    animation: driftAfter 30s ease-in-out infinite alternate;
+}
+
+@keyframes driftBefore {
+    0% {
+        transform: translateX(-10%) translateY(-10%) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(10%) translateY(10%) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+@keyframes driftAfter {
+    0% {
+        transform: translateX(5%) translateY(5%) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(-5%) translateY(-5%) scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+img {
+    max-width: 700px;
+    width: 100%;
+    aspect-ratio: 5 / 1;
+    object-fit: fill;
+    object-position: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.randomize-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.randomize-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
